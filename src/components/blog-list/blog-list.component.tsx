@@ -1,14 +1,18 @@
 import { Blog } from "../../models/blog.model";
+import { useAppSelector } from "../../app/hooks";
+import { Flex } from "antd";
 import BlogCard from "../blog-card/blog-card.component";
 
-const BlogList = ({ blogs }: { blogs: Blog[] }) => {
+const BlogList = () => {
+
+    const blogs = useAppSelector<Blog[]>(state => state.blogs);
 
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+        <Flex wrap="wrap" justify="center" gap={10} style={{ padding: '10px', background: '#f5f5f5' }} >
             {blogs.map(blog => (
                 <BlogCard key={blog.id} blog={blog} />
             ))}
-        </div>
+        </Flex>
     );
 };
 export default BlogList;
