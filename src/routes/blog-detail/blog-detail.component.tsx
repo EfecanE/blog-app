@@ -12,7 +12,7 @@ const BlogDetail = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/blogs/${id}`)
+        axios.get(`http://localhost:3001/blogs/${id}`)
             .then((response) => {
                 setBlog(response.data);
                 setLoading(false);

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  react-app:
+    build: .
+    ports:
+      - 3000:3000
+
+  json-server:
+    image: clue/json-server
+    command: --watch /db/db.json --host 0.0.0.0
+    ports:
+      - "3001:80"
+    volumes:
+      - ./db:/db

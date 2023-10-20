@@ -13,7 +13,7 @@ const Home = () => {
 
     useEffect(() => {
         if (blogs.length > 0) return;
-        axios.get<Blog[]>('http://localhost:8000/blogs')
+        axios.get<Blog[]>('http://localhost:3001/blogs')
             .then((response) => {
                 response.data.forEach((blog) => {
                     dispatch(addBlog(blog));

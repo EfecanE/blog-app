@@ -15,7 +15,7 @@ const BlogCard = ({ blog }: { blog: Blog }) => {
     const dispatch = useAppDispatch();
 
     const removeBlog = () => {
-        axios.delete('http://localhost:8000/blogs/' + blog.id);
+        axios.delete('http://localhost:3001/blogs/' + blog.id);
         dispatch(deleteBlog(blog));
         setOpen(false);
     }

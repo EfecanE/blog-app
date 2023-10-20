@@ -18,7 +18,7 @@ const AddBlog = () => {
     const onFormValid = (values: Blog) => {
         const blogData: Blog = { ...values, id: uuid(), createdAt: new Date().toString() };
         appDispatch(addBlog(blogData));
-        axios.post('http://localhost:8000/blogs', blogData);
+        axios.post('http://localhost:3001/blogs', blogData);
         messageApi.open({
             type: 'success',
             content: 'Blog başarılı bir şekilde eklendi.',

@@ -1,23 +1,7 @@
-# pull official base image
-FROM node:13.12.0-alpine
-
-# set working directory
-WORKDIR /src
-
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-
-# add app
-COPY . ./
-
-# start json-server
-RUN json-server --watch db.json --port 8000
-
-# start app
-CMD ["npm", "start"]
+FROM node:16-alpine
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD [ "npm", "start" ]

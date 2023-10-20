@@ -21,7 +21,7 @@ const EditBlog = () => {
     const onFormValid = (values: Blog) => {
         const blogData: Blog = { ...blog!, title: values.title, author: values.author, content: values.content, createdAt: new Date().toString() };
         appDispatch(updateBlog(blogData));
-        axios.patch('http://localhost:8000/blogs/' + id, blogData);
+        axios.patch('http://localhost:3001/blogs/' + id, blogData);
         messageApi.open({
             type: 'success',
             content: 'Blog başarılı bir şekilde düzenlendi.',
@@ -40,7 +40,7 @@ const EditBlog = () => {
 
     useEffect(() => {
         setLoading(true);
-        axios.get<Blog>('http://localhost:8000/blogs/' + id)
+        axios.get<Blog>('http://localhost:3001/blogs/' + id)
             .then((response) => {
                 setBlog(response.data);
                 setLoading(false);
