@@ -18,6 +18,7 @@ Bu proje Bestnet Frontend Case için hazırlanmıştır. Proje React ile gelişt
 
 1. `npm install` komutunu çalıştırarak gerekli paketleri yükleyin.
 2. `npm start` komutunu çalıştırarak uygulamayı başlatın.
+3. `npm run server` komutunu çalıştırarak json-server'ı başlatın.
 
 ## Docker Compose ile çalıştırma
 
